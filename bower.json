@@ -1,0 +1,28 @@
+{
+  "name": "todoapp-angular-electron",
+  "description": "todoapp angular electron",
+  "main": "main.js",
+  "authors": [
+    "yasuaki.hirano"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "angular",
+    "5",
+    "electron",
+    "typescript",
+    "sass"
+  ],
+  "homepage": "https://github.com/YasuakiHirano/todoapp-angular-electron",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap4": "^4.1.1"
+  }
+}

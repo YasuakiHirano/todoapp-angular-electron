@@ -1,5 +1,32 @@
-<div class="container">
-  <h1 class="title">
-    {{ 'PAGES.HOME.TITLE' | translate }}
-  </h1>
+<link rel="stylesheet" href="../../assets/bower_components/bootstrap4/dist/css/bootstrap.css" />
+<script href="../../assets/bower_components/bootstrap4/dist/js/bootstrap.js"></script>
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">todo</a>
+</nav>
+<div class="card mt-2 ml-2 mr-2 ">
+  <div class="card-header">
+    input
+  </div>
+  <div class="card-body">
+    <div class="form-group">
+      <input type="text" [(ngModel)]="content" class="form-control" placeholder="input task text..."/>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-block btn-primary" (click)="onAddTask()">Add</button>
+    </div>
+  </div>
+</div>
+<div class="card mt-2 ml-2 mr-2 ">
+  <div class="card-header">
+    list
+  </div>
+  <div class="card-body">
+    <div class="list-group" *ngFor="let task of taskAry">
+      <a class="list-group-item list-group-item-action mb-2">
+        <div class="d-flex w-100 justify-content-between">
+          {{task.content}}
+        </div>
+      </a>
+    </div>
+  </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from './task';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  content: string = '';
+  taskAry: Task[] = [];
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  onAddTask() {
+    let new_task = new Task(this.content);
+    this.taskAry.push(new_task);
+    console.log("test");
+    console.log(this.content);
+  }
 }
