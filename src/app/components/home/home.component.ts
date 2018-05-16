@@ -8,6 +8,7 @@ import { Task } from './task';
 })
 export class HomeComponent implements OnInit {
 
+  id : int = 0;
   content: string = '';
   taskAry: Task[] = [];
 
@@ -17,9 +18,12 @@ export class HomeComponent implements OnInit {
   }
 
   onAddTask() {
-    let new_task = new Task(this.content);
+    let new_task = new Task(this.id, this.content);
     this.taskAry.push(new_task);
-    console.log("test");
-    console.log(this.content);
+  }
+
+  onDeleteTask(task) {
+    let index = this.taskAry.indexOf(task);
+    this.taskAry.splice(index, 1);
   }
 }
