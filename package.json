@@ -1,7 +1,7 @@
 {
-  "name": "angular-electron",
-  "version": "3.3.0",
-  "description": "Angular 5 with Electron (Typescript + SASS + Hot Reload)",
+  "name": "todoapp-angular-electron",
+  "version": "1.0.0",
+  "description": "angular-electronを使ってtodoアプリ作成",
   "author": {
     "name": "yasuaki.hirano",
     "email": "yasuakihappy2@yahoo.co.jp"
