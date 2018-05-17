@@ -1,7 +1,7 @@
 # todoapp-angular-electron  
 angular + electronでtodoアプリを作りました。
 
-![demo](https://photos.google.com/share/AF1QipP5_Ey67pq-LvtJ3TOJo3PrtbLVnMKoolcGdT5hhS2hPTwlxqGQDEOOcmAtYMzFaQ/photo/AF1QipMqlCb0IToJ8bBytRFrPQxQBHoM0xHvSiO_p3j_?key=dEVNcmtUdm1iMUFiU3I4MXBnNnBoaHVBS2NySi1R&hl=ja)
+<img src="https://photos.google.com/share/AF1QipP5_Ey67pq-LvtJ3TOJo3PrtbLVnMKoolcGdT5hhS2hPTwlxqGQDEOOcmAtYMzFaQ/photo/AF1QipMqlCb0IToJ8bBytRFrPQxQBHoM0xHvSiO_p3j_?key=dEVNcmtUdm1iMUFiU3I4MXBnNnBoaHVBS2NySi1R&hl=ja" width="100">
 
 ## webで動かす
 ソースのカレントディレクトリに移動して、 `ng serve` を実行します。
