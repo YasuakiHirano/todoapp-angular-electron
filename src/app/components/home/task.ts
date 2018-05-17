@@ -1,9 +1,10 @@
 export class Task {
-  id: int;
+  id: number;
   content: string;
+  task_status: string;
 
-  constructor(id, content){
-    this.id = id;
+  constructor(content){
     this.content = content;
+    this.task_status = "dark";
   }
 }

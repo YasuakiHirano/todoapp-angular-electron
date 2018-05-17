@@ -3,11 +3,11 @@
 </nav>
 <div class="card mt-2 ml-2 mr-2 ">
   <div class="card-header">
-    input
+    TODOを入力する
   </div>
   <div class="card-body">
     <div class="form-group">
-      <input type="text" [(ngModel)]="content" class="form-control" placeholder="input task text..."/>
+      <textarea [(ngModel)]="content" class="form-control" placeholder="input task text..."></textarea>
     </div>
     <div class="form-group">
       <button class="btn btn-block btn-primary" (click)="onAddTask()">Add</button>
@@ -16,16 +16,27 @@
 </div>
 <div class="card mt-2 ml-2 mr-2 ">
   <div class="card-header">
-    list
+    TODO一覧
   </div>
   <div class="card-body">
+    <div *ngIf="taskAry.length == 0">
+      タスクがありません。
+    </div>
+    <div *ngIf="taskAry.length != 0" class="mb-2">
+      {{taskAry.length}}件のタスクがあります。{{this.completeCnt}}件が完了しました。 <br />
+      <div *ngIf="taskAry.length == completeCnt" class="mb-2">
+        すべてのタスクが完了しました。お疲れ様でした。
+      </div>
+    </div>
     <div class="list-group" *ngFor="let task of taskAry">
       <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action mb-2">
-        <div class="check-btn btn btn-dark btn-sm mr-2 pb-2">
-          <span class="oi oi-check"></span>
+        <div class="check-btn btn btn-{{task.task_status}} btn-sm mr-2 pb-1" (click)="onCheckTask(task)">
+          <span *ngIf="task.task_status" class="oi oi-check"></span>
         </div>
-        <div class="d-flex w-100 justify-content-between">
-          {{task.content}}
+        <div class="d-flex w-100 justify-content-between task_content">
+          <div *ngIf="task.task_status == 'dark'; then statusDarkBlock else statusSuccessBlock"></div>
+          <ng-template #statusDarkBlock><div class="normal_text">{{task.content}}</div></ng-template>
+          <ng-template #statusSuccessBlock><div class="cancel_text">{{task.content}}</div></ng-template>
         </div>
         <button class="close-btn btn btn-dark btn-sm mr-2 pb-2" (click)="onDeleteTask(task)">
           <span class="oi oi-x" title="x" aria-hidden="true"></span>
