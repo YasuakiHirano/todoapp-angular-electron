@@ -1,11 +1,17 @@
 <nav class="navbar navbar-dark bg-primary">
   <a class="navbar-brand" href="#">todo</a>
+  <!--
+  <button class="btn btn-info btn-mini" (click)="onOutFile()">outfile<span class="oi oi-file ml-2"></span></button>
+  -->
 </nav>
 <div class="card mt-2 ml-2 mr-2 ">
-  <div class="card-header">
+  <div class="card-header d-flex justify-content-between" (click)="toggleInputPanel()">
     TODOを入力する
+    <div *ngIf="this.input_panel_state == 'active'; then statusPanelOpen else statusPanelClose"></div>
+    <ng-template #statusPanelOpen><span class="oi oi-chevron-top"></span></ng-template>
+    <ng-template #statusPanelClose><span class="oi oi-chevron-bottom"></span></ng-template>
   </div>
-  <div class="card-body">
+  <div class="card-body" [@input_panel_state]="input_panel_state">
     <div class="form-group">
       <textarea [(ngModel)]="content" class="form-control" placeholder="input task text..."></textarea>
     </div>

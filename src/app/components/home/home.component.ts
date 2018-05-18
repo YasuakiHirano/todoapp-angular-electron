@@ -1,16 +1,33 @@
 import { Component, OnInit } from '@angular/core';
+import { trigger, state, style, transition, animate } from "@angular/animations";
 import { Task } from './task';
+import { ElectronService } from 'ngx-electron';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [
+    trigger('input_panel_state', [
+      state('inactive', style({
+        height: '0px',
+        display: 'none'
+      })),
+      state('active',   style({
+        height: 'auto',
+        display: 'block'
+      })),
+      transition('inactive => active', animate('100ms ease-in')),
+      transition('active => inactive', animate('100ms ease-out'))
+    ])
+  ]
 })
 export class HomeComponent implements OnInit {
 
   content: string = '';
   taskAry: Task[] = [];
   completeCnt: number = 0;
+  input_panel_state: string = 'active';
 
   constructor() { }
 
@@ -56,5 +73,13 @@ export class HomeComponent implements OnInit {
       }
     }
     this.completeCnt = cnt;
+  }
+
+  toggleInputPanel() {
+    this.input_panel_state = this.input_panel_state === 'active' ? 'inactive' : 'active';
+  }
+
+  onOutFile() {
+
   }
 }
