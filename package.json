@@ -34,7 +34,8 @@
     "e2e": "npm-run-all -p -r pree2e:build pree2e:protractor"
   },
   "dependencies": {
-    "@angular/animations": "^6.0.2"
+    "@angular/animations": "^6.0.2",
+    "ngx-fs": "0.0.1"
   },
   "devDependencies": {
     "@angular/cli": "1.7.4",

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from "@angular/animations";
 import { Task } from './task';
-import { ElectronService } from 'ngx-electron';
+import { FsService } from 'ngx-fs';
 
 @Component({
   selector: 'app-home',
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   completeCnt: number = 0;
   input_panel_state: string = 'active';
 
-  constructor() { }
+  constructor(private _fsService: FsService) { }
 
   ngOnInit() {
     let task_data = JSON.parse(localStorage.getItem("task_data"));
@@ -80,6 +80,21 @@ export class HomeComponent implements OnInit {
   }
 
   onOutFile() {
+    if (-1 < window.navigator.userAgent.indexOf("Electron")) {
+      let dt = new Date();
+      let month = dt.getMonth()+1;
+      let day = dt.getDate();
+      let year = dt.getFullYear();
+      const fs = this._fsService.fs as any;
 
+      let text_data = '';
+      for (let i = 0; i < this.taskAry.length;i++) {
+        text_data += this.taskAry[i].content + "\n";
+      }
+
+      fs.writeFileSync( "todo_"+year+month+day+".txt" , text_data);
+    } else {
+      alert("デスクトップ版以外は実行できません。");
+    }
   }
 }
